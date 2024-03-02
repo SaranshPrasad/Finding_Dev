@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding Devs</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bf13ea9793.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Header starts here --------- -->
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white;">Finding Dev</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            style="color: white;"
+          >
+          <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-user-secret"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"
+                  ><i class="fa-brands fa-canadian-maple-leaf"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Header ends here ------------- -->
+    <!-- container starts here -->
+    <div class="container" id="section-1">
+      <h1 class="mt-5" style="text-align: center;color: white;">Finding Dev</h1>
+      <div>
+        <form action="/" method="POST" class="mt-4 d-flex">
+          
+            <input
+              type="text"
+              name="location"
+               
+              placeholder="Enter location"
+            />
+       
+          <button type="submit" id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <div class="row mt-5 d-flex" style="gap: 20px;justify-content: center;">
+        {%if users%}
+        {% for user in users %}
+        <div class="wrapper">
+          <div class="img-area">
+            <div class="inner-area">
+              <img src="{{ user.avatar_url }}" alt="Member Photo">
+            </div>
+          </div>
+          <div class="name">{{ user.login }} </div>
+          <div class="about">
+          <a href="{{ user.html_url }}" target="_blank">Github Link</a></div>
+        </div>
+      {% endfor %}
+      {%else%} 
+      <h2 class="m-4 p-4">Search for developers in your city...</h2>
+      {%endif%}
+      </div>
+    </div>
+    <!-- second section starts here  -->
+    
+    <div class="container mt-5" id="section-2">
+        <div id="about-box">
+          <h1>Developer Says ...</h1>
+            <div>
+              <h2 class="mt-2">About Our Web App</h2> <hr>
+
+              <p class="mt-4">Welcome to our dynamic web app, powered by Flask! Are you eager to connect with developers in your area? Look no further! Our app is designed to help you find talented GitHub users based on your search location, bringing the coding community right to your doorstep.</p>
+              
+              <h2 class="mt-2">Why Use Our App?</h2> <hr>
+              
+              <p class="mt-4">Whether you're a seasoned developer, an aspiring coder, or just someone intrigued by the world of programming, our app offers a delightful way to discover talented developers near you. With just a few clicks, you can find like-minded individuals, connect with them, and perhaps even collaborate on exciting projects. <p>
+              
+              <h2 class="mt-2">How It Works</h2> <hr>
+              
+              <p class="mt-4">Using the power of GitHub's extensive database and our intuitive interface, simply input your desired location, and our app will do the rest. We'll scour GitHub for developers matching your criteria, presenting you with a list of profiles to explore. From there, you can dive deeper into their repositories, check out their projects, and maybe even reach out to start a conversation.</p>
+              
+              <h2 class="mt-2">Join Our Coding Community</h2> <hr>
+              
+              <p class="mt-4">Our web app is all about fostering a sense of community and curiosity within the world of coding. Whether you're looking for inspiration, networking opportunities, or just a bit of coding-related fun, we invite you to give our app a try. Who knows? You might just stumble upon your next coding partner or mentor!</p>
+              
+              <h2 class="mt-2">Start Your Coding Journey Today</h2> <hr>
+              
+              <p class="mt-4">Ready to embark on your coding adventure? Simply enter your search location and let our app introduce you to a world of talented developers nearby. Happy coding!</p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="mt-5 container-fluid d-flex justify-content-center">
+      <div id="social-links">
+        <a href="https://www.instagram.com/___saransh.__/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/SaranshPrasad" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/saransh-bari-1a8b45283/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+      <div id="footer-text" class="mt-4"><i class="fa-solid fa-code"></i> Made while eating 🍨 By Saransh</div>
+      
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

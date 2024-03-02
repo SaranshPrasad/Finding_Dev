@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Search Results</h1>
+        <div class="row mt-3">
+            {% for user in users %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ user.avatar_url }}" class="card-img-top" alt="User Avatar">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.login }}</h5>
+                        <p class="card-text">Profile URL: <a href="{{ user.html_url }}" target="_blank">{{ user.html_url }}</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
