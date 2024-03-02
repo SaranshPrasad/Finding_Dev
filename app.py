@@ -5,6 +5,7 @@ import os
 app = Flask(__name__)
 
 # GitHub API base URL
+app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 API_BASE_URL = 'https://api.github.com/search/users'
 
 # Your GitHub access token
