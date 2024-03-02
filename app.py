@@ -8,7 +8,7 @@ app = Flask(__name__)
 API_BASE_URL = 'https://api.github.com/search/users'
 
 # Your GitHub access token
-ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 
 
 @app.route('/', methods=["GET", "POST"])
