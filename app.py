@@ -9,8 +9,6 @@ app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 API_BASE_URL = 'https://api.github.com/search/users'
 
 # Your GitHub access token
-ACCESS_TOKEN = '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'
-
 
 @app.route('/', methods=["GET", "POST"])
 def index():
